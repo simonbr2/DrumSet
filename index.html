@@ -7,6 +7,49 @@
 </head>
 <body>
 
+  <div class="upperkeys">
+    <div data-key="81" class="upperkey">
+      <kbd>Q</kbd>
+      <span class="sound">diddle</span>
+    </div>
+    <div data-key="87" class="upperkey">
+      <kbd>W</kbd>
+      <span class="sound">chord</span>
+    </div>
+    <div data-key="69" class="upperkey">
+      <kbd>E</kbd>
+      <span class="sound">funk</span>
+    </div>
+    <div data-key="82" class="upperkey">
+      <kbd>R</kbd>
+      <span class="sound">soul</span>
+    </div>
+    <div data-key="84" class="upperkey">
+      <kbd>T</kbd>
+      <span class="sound">tingting</span>
+    </div>
+    <div data-key="89" class="upperkey">
+      <kbd>Y</kbd>
+      <span class="sound">riff</span>
+    </div>
+    <div data-key="85" class="upperkey">
+      <kbd>U</kbd>
+      <span class="sound">metal</span>
+    </div>
+    <div data-key="73" class="upperkey">
+      <kbd>I</kbd>
+      <span class="sound">dwingding</span>
+    </div>
+    <div data-key="79" class="upperkey">
+      <kbd>O</kbd>
+      <span class="sound">clown</span>
+    </div>
+    <div data-key="80" class="upperkey">
+      <kbd>P</kbd>
+      <span class="sound">horn</span>
+    </div>
+  </div>
+
 
   <div class="middlekeys">
     <div data-key="65" class="middlekey">
@@ -48,29 +91,48 @@
   </div>
 
   <div class="lowerkeys">
+    <div data-key="90" class="lowerkey">
+      <kbd>Z</kbd>
+      <span class="sound">wolf</span>
+    </div>
+    <div data-key="88" class="lowerkey">
+      <kbd>X</kbd>
+      <span class="sound">monkey</span>
+    </div>
+    <div data-key="67" class="lowerkey">
+      <kbd>C</kbd>
+      <span class="sound">buzz</span>
+    </div>
+    <div data-key="86" class="lowerkey">
+      <kbd>V</kbd>
+      <span class="sound">dog</span>
+    </div>
+    <div data-key="66" class="lowerkey">
+      <kbd>B</kbd>
+      <span class="sound">cricket</span>
+    </div>
     <div data-key="78" class="lowerkey">
       <kbd>N</kbd>
-      <span class="sound">fart</span>
+      <span class="sound">lion</span>
     </div>
-    <div data-key="79" class="lowerkey">
-      <kbd>O</kbd>
-      <span class="sound">fart</span>
-    </div>
-    <div data-key="76" class="lowerkey">
-      <kbd>L</kbd>
-      <span class="sound">fart</span>
-    </div>
-    <div data-key="65" class="lowerkey">
-      <kbd>A</kbd>
-      <span class="sound">fart</span>
-    </div>
-    <div data-key="78" class="lowerkey">
-      <kbd>N</kbd>
-      <span class="sound">fart</span>
+    <div data-key="77" class="lowerkey">
+      <kbd>M</kbd>
+      <span class="sound">bird</span>
     </div>
   </div>
 
-  <audio data-key="65" src="sounds/fart-4.wav"></audio>
+  <audio data-key="81" src="sounds/guitar1.wav"></audio>
+  <audio data-key="87" src="sounds/guitar2.wav"></audio>
+  <audio data-key="69" src="sounds/guitar3.wav"></audio>
+  <audio data-key="82" src="sounds/guitar4.wav"></audio>
+  <audio data-key="84" src="sounds/guitar5.wav"></audio>
+  <audio data-key="89" src="sounds/guitar6.wav"></audio>
+  <audio data-key="85" src="sounds/guitar7.wav"></audio>
+  <audio data-key="73" src="sounds/guitar8.wav"></audio>
+  <audio data-key="79" src="sounds/car1.wav"></audio>
+  <audio data-key="80" src="sounds/car2.wav"></audio>
+  
+  <audio data-key="65" src="sounds/clap.wav"></audio>
   <audio data-key="83" src="sounds/hihat.wav"></audio>
   <audio data-key="68" src="sounds/kick.wav"></audio>
   <audio data-key="70" src="sounds/openhat.wav"></audio>
@@ -78,10 +140,15 @@
   <audio data-key="72" src="sounds/ride.wav"></audio>
   <audio data-key="74" src="sounds/snare.wav"></audio>
   <audio data-key="75" src="sounds/tom.wav"></audio>
-  <audio data-key="76" src="sounds/fart-5.wav"></audio>
-  <audio data-key="78" src="sounds/fart-1.wav"></audio>
-  <audio data-key="79" src="sounds/fart-2.wav"></audio>
-  <audio data-key="78" src="sounds/fart-3.wav"></audio>
+  <audio data-key="76" src="sounds/tink.wav"></audio>
+
+  <audio data-key="90" src="sounds/wolf.wav"></audio>
+  <audio data-key="88" src="sounds/monkey.wav"></audio>
+  <audio data-key="67" src="sounds/buzz.wav"></audio>
+  <audio data-key="86" src="sounds/dog.wav"></audio>
+  <audio data-key="66" src="sounds/cricket.wav"></audio>
+  <audio data-key="78" src="sounds/lion.wav"></audio>
+  <audio data-key="77" src="sounds/bird.wav"></audio>
 
 <script>
   function removeTransition(item) {
@@ -98,6 +165,10 @@
     audio.currentTime = 0;
     audio.play();
   }
+
+  const upkeys = Array.from(document.querySelectorAll('.upperkey'));
+  upkeys.forEach(key => key.addEventListener('transitionend', removeTransition));
+  window.addEventListener('keydown', playSound);
 
   const midkeys = Array.from(document.querySelectorAll('.middlekey'));
   midkeys.forEach(key => key.addEventListener('transitionend', removeTransition));
